@@ -30,4 +30,4 @@ const parent= React.createElement("div", {id:"parent"},
 ]
 )
 
-root.render(parent);
+root.render(parent);//every thing above is rendered inside this div with root id and replace everything if write anything inside root in index.html
