@@ -1,9 +1,7 @@
 {
   "name": "codewithreact",
   "version": "1.0.0",
-  "description": "react",
-  "main": "App.js",
-  "scripts": {
+  "description": "react",  "scripts": {
     "test": "jest"
   },
   "repository": {

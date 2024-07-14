@@ -1,4 +1,4 @@
-5983
+5986
 81D:\Projects\React project\Learn-react-\codeWithReact\node_modules\process\LICENSE133654209043412946 0
 113D:\Projects\React project\Learn-react-\codeWithReact\node_modules\caniuse-lite\data\features\css-marker-pseudo.js133654185716853253 0
 89D:\Projects\React project\Learn-react-\codeWithReact\node_modules\source-map\package.json133654185700297808 0
@@ -44,7 +44,7 @@
 105D:\Projects\React project\Learn-react-\codeWithReact\node_modules\csso\node_modules\css-tree\dist\data.js133654185716271597 0
 109D:\Projects\React project\Learn-react-\codeWithReact\node_modules\caniuse-lite\data\features\object-values.js133654185720656346 0
 117D:\Projects\React project\Learn-react-\codeWithReact\node_modules\caniuse-lite\data\features\subresource-integrity.js133654185721526164 0
-63D:\Projects\React project\Learn-react-\codeWithReact\index.html133654176678972003 0
+63D:\Projects\React project\Learn-react-\codeWithReact\index.html133654215044771504 0
 107D:\Projects\React project\Learn-react-\codeWithReact\node_modules\caniuse-lite\data\features\css-nesting.js133654185717099229 0
 91D:\Projects\React project\Learn-react-\codeWithReact\node_modules\@parcel\markdown-ansi\lib133654185700829086 1
 73D:\Projects\React project\Learn-react-\codeWithReact\node_modules\process133654209043513207 1
@@ -90,7 +90,7 @@
 88D:\Projects\React project\Learn-react-\codeWithReact\node_modules\mdn-data\l10n\index.js133654185702797917 0
 98D:\Projects\React project\Learn-react-\codeWithReact\node_modules\.bin\download-lmdb-prebuilds.ps1133654185724424591 0
 141D:\Projects\React project\Learn-react-\codeWithReact\node_modules\@parcel\package-manager\test\fixtures\has-foo\node_modules\foo\package.json133654185710581386 0
-57D:\Projects\React project\Learn-react-\codeWithReact\dist133654209049248950 1
+57D:\Projects\React project\Learn-react-\codeWithReact\dist133654441308251553 1
 95D:\Projects\React project\Learn-react-\codeWithReact\node_modules\msgpackr-extract\package.json133654185703273953 0
 75D:\Projects\React project\Learn-react-\codeWithReact\dist\index.6bd02f5a.js133654209049078286 0
 146D:\Projects\React project\Learn-react-\codeWithReact\node_modules\@parcel\optimizer-svgo\node_modules\css-select\lib\pseudo-selectors\aliases.d.ts133654185708820264 0
@@ -143,7 +143,7 @@
 106D:\Projects\React project\Learn-react-\codeWithReact\node_modules\type-fest\source\conditional-except.d.ts133654185704466220 0
 98D:\Projects\React project\Learn-react-\codeWithReact\node_modules\css-tree\lib\generator\create.js133654185716126769 0
 114D:\Projects\React project\Learn-react-\codeWithReact\node_modules\caniuse-lite\data\features\css-color-function.js133654185715930891 0
-68D:\Projects\React project\Learn-react-\codeWithReact\dist\index.html133654209049248950 0
+68D:\Projects\React project\Learn-react-\codeWithReact\dist\index.html133654441308226416 0
 88D:\Projects\React project\Learn-react-\codeWithReact\node_modules\css-tree\cjs\generator133654185715472633 1
 112D:\Projects\React project\Learn-react-\codeWithReact\node_modules\csso\cjs\restructure\2-initialMergeRuleset.cjs133654185701530053 0
 107D:\Projects\React project\Learn-react-\codeWithReact\node_modules\csso\node_modules\mdn-data\css\units.json133654185708926895 0
@@ -153,8 +153,8 @@
 112D:\Projects\React project\Learn-react-\codeWithReact\node_modules\csso\node_modules\mdn-data\css\properties.json133654185707119791 0
 95D:\Projects\React project\Learn-react-\codeWithReact\node_modules\entities\lib\maps\legacy.json133654185705319549 0
 105D:\Projects\React project\Learn-react-\codeWithReact\node_modules\@swc\helpers\_\_iterable_to_array_limit133654185718146733 1
-65D:\Projects\React project\Learn-react-\codeWithReact\package.json133654209044406395 0
-59D:\Projects\React project\Learn-react-\codeWithReact\App.js133654175475975241 0
+65D:\Projects\React project\Learn-react-\codeWithReact\package.json133654441309086241 0
+59D:\Projects\React project\Learn-react-\codeWithReact\App.js133654215613857296 0
 92D:\Projects\React project\Learn-react-\codeWithReact\node_modules\utility-types\package.json133654185703642350 0
 97D:\Projects\React project\Learn-react-\codeWithReact\node_modules\caniuse-lite\data\regions\NC.js133654185720494633 0
 112D:\Projects\React project\Learn-react-\codeWithReact\node_modules\caniuse-lite\data\features\cookie-store-api.js133654185715584853 0
@@ -5982,3 +5982,6 @@
 81D:\Projects\React project\Learn-react-\codeWithReact\node_modules\.bin\semver.cmd133654185724429764 0
 75D:\Projects\React project\Learn-react-\codeWithReact\node_modules\.bin\svgo133654185724429764 0
 97D:\Projects\React project\Learn-react-\codeWithReact\node_modules\.bin\update-browserslist-db.ps1133654185724429764 0
+63D:\Projects\React project\Learn-react-\codeWithReact\.gitignore133654209234755239 0
+75D:\Projects\React project\Learn-react-\codeWithReact\dist\index.7826abd7.js133654441308226416 0
+79D:\Projects\React project\Learn-react-\codeWithReact\dist\index.7826abd7.js.map133654441308251553 0
