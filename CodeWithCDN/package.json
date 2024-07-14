@@ -1,0 +1,25 @@
+{
+  "name": "learn-react-",
+  "version": "1.0.0",
+  "description": "learning react",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shreyaa2410/Learn-react-.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Shreya Ghosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shreyaa2410/Learn-react-/issues"
+  },
+  "homepage": "https://github.com/shreyaa2410/Learn-react-#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
