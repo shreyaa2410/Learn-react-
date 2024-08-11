@@ -1,4 +1,6 @@
+import { useState } from "react";
 const Header = () => {
+  const [auth,setAuth]=useState("Login");
     return (
       <div className="header">
         <div className="container">
@@ -21,7 +23,7 @@ const Header = () => {
                     <a href="#">About</a>
                   </li>
                 </ul>
-                <button className="btn">Kontact</button>
+                <button className="btn" onClick={()=>{auth=='Login'?setAuth("Logout"):setAuth("Login")}}>{auth}</button>
               </div>
             </div>
           </div>

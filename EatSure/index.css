@@ -75,10 +75,17 @@ p{
     height: 100%;
     transition: all 0.3s ease-in-out;
 }
+.cards__img img{
+height: 220px;
+}
 .cards:hover{
     transform: scale(1.02);
     cursor: pointer;
 }
 .cards .cards__content{
     padding: 10px;
+}
+.shimmer__card{
+    background-color: #f0f0f0;
+    height: 400px;
 }
