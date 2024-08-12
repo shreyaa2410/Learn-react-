@@ -19,15 +19,16 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.8092428&lng=86.1624587"
     );
     const jsonData = await data.json();
+    console.log(jsonData);
     const restaurants =
-      await jsonData.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants;
+      await jsonData.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants;
     setResturantList(restaurants || []);
     setFilteredData(restaurants || []);
   };
 
   let FilterRating = ()=>{ 
     const highRated =resturantList.filter((res) => {
-     res.info.avgRatingString > 3.9;
+     return  res.info.avgRatingString > 4.5;
   });
   setFilteredData(highRated);
 }
@@ -35,9 +36,9 @@ const Body = () => {
 
 
   let filteredCards = () => {
-   const searchFilter= resturantList.filter((res) =>
-      res.info.name.toLowerCase().includes(searchText.toLowerCase())
-    );
+   const searchFilter= resturantList.filter((res) =>{
+      return res.info.name.toLowerCase().includes(searchText.toLowerCase())
+  });
     setFilteredData(searchFilter);
   };
 
