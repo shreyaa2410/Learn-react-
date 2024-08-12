@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const Body = () => {
   const [resturantList, setResturantList] = useState([]);
   const [searchText, setSearchText] = useState("");
-
+  const [filteredData,setFilteredData]= useState([]);
 
   
   useEffect(() => {
@@ -20,15 +20,17 @@ const Body = () => {
     );
     const jsonData = await data.json();
     const restaurants =
-      jsonData.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    setResturantList(restaurants);
-    console.log(resturantList)
+      await jsonData.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants;
+    setResturantList(restaurants || []);
+    setFilteredData(restaurants || []);
   };
 
-  let FilteredData = resturantList.filter((res) => {
-    return res.info.avgRatingString > 3.9;
+  let FilterRating = ()=>{ 
+    const highRated =resturantList.filter((res) => {
+     res.info.avgRatingString > 3.9;
   });
+  setFilteredData(highRated);
+}
 
 
 
@@ -36,17 +38,12 @@ const Body = () => {
    const searchFilter= resturantList.filter((res) =>
       res.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
-    setResturantList(searchFilter);
+    setFilteredData(searchFilter);
   };
 
 
 
-  if (resturantList.length === 0) {
-    return <ShimmerUi />;
-  }
-
-
-  return (
+  return  resturantList.length===0?(<ShimmerUi />):(
     <div className="body mt-4 pb-3">
       <div className="container">
         <div className="row justify-content-center text-center  mb-3">
@@ -58,16 +55,14 @@ const Body = () => {
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
               />
-              <button className="search-btn" onClick={(filteredCards)}>
+              <button className="search-btn" onClick={filteredCards}>
                 Search
               </button>
             </div>
             <div className="filter-tags">
               <button
                 className="rated-btn primary-btn"
-                onClick={() => {
-                  setResturantList(FilteredData);
-                }}
+                onClick={FilterRating}
               >
                 Top Rated
               </button>
@@ -75,7 +70,7 @@ const Body = () => {
           </div>
         </div>
         <div className="row res-container g-4">
-          {resturantList.map((resturant) => (
+          {filteredData.map((resturant) => (
             <ResCard key={resturant.info.id} resList={resturant} />
           ))}
         </div>
