@@ -2,13 +2,15 @@ import ResCard from "./ResCard";
 import { resobj } from "../utils/mockData";
 import ShimmerUi from "./ShimmerUi";
 import { useEffect, useState } from "react";
+import {Link, useParams} from 'react-router-dom';
+
 // Body
 const Body = () => {
   const [resturantList, setResturantList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredData,setFilteredData]= useState([]);
 
-  
+  const {resId}=useParams();
   useEffect(() => {
     fetchData();
   }, []);
@@ -21,7 +23,7 @@ const Body = () => {
     const jsonData = await data.json();
     console.log(jsonData);
     const restaurants =
-      await jsonData.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants;
+      await jsonData.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants;
     setResturantList(restaurants || []);
     setFilteredData(restaurants || []);
   };
@@ -72,7 +74,7 @@ const Body = () => {
         </div>
         <div className="row res-container g-4">
           {filteredData.map((resturant) => (
-            <ResCard key={resturant.info.id} resList={resturant} />
+           <ResCard key={resturant.info.id} resList={resturant} />
           ))}
         </div>
       </div>

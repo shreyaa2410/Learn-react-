@@ -3,34 +3,48 @@ import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
-import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import { createBrowserRouter,RouterProvider ,Outlet, useParams} from "react-router-dom";
 import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
-
+import RestMenu from "./src/components/RestMenu";
 const AppLayout = () => {
+  
   return (
     <div className="app">
       <Header />
-      <Body />
+      <Outlet/>
     </div>
   );
 };
+
 const appRouter=createBrowserRouter(
   [
     {
-      path: '/',
+      
       element: <AppLayout />,
+      children:[
+        {
+          path: '/',
+          element:<Body/>
+        },
+        {
+          path: '/about',
+          element: <About name="Shreya" place="kadma" />,
+        },
+        {
+          path: '/contact',
+          element: <Contact />
+        },
+        {
+          path:'/resturants/:resId',
+          element: <RestMenu />
+        }
+      ],
       errorElement:<Error/>,
     },
-    {
-      path: '/about',
-      element: <About />,
-    },
-    {
-      path: '/contact',
-      element: <Contact />
-    }
+    
+    
   ]
 )
 
