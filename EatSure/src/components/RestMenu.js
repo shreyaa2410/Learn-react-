@@ -1,25 +1,38 @@
 import { useEffect, useState } from "react";
 import ShimmerUi from "./ShimmerUi";
-import { IMAGE_URL,RES_MENU } from "../utils/constants";
+import { IMAGE_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
+import useRestrauntMenu from "../utils/useRestrauntMenu";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const RestMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
+  // const [resInfo, setResInfo] = useState(null);
   const {resId}=useParams();
-  console.log(resId);
-  useEffect(() => {
-    fetchData();
-  }, []);
-  console.log("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.8092428&lng=86.1624587&restaurantId="+resId)
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.8092428&lng=86.1624587&restaurantId=" + resId
-    );
 
-    const jsonData = await data.json();
-    console.log(jsonData)
-    setResInfo(jsonData);
-  };
+  const resInfo= useRestrauntMenu(resId); //custom hook
+  const onlineStatus= useOnlineStatus();
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+  // console.log("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.8092428&lng=86.1624587&restaurantId="+resId)
+  // const fetchData = async () => {
+  //   const data = await fetch(
+  //     "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.8092428&lng=86.1624587&restaurantId=" + resId
+  //   );
+
+  //   const jsonData = await data.json();
+  //   console.log(jsonData)
+  //   setResInfo(jsonData);
+  // };
+  if(onlineStatus==false)
+  {
+    return (
+      <>
+      <p>Loooks Like you are Offline</p>
+      </>
+    )
+  }
   if (resInfo == null) return <ShimmerUi />;
   const {
     info = {},

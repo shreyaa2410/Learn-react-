@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "./src/components/Header";
@@ -8,8 +8,10 @@ import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
 import RestMenu from "./src/components/RestMenu";
+// import Grocery from "./src/components/Grocery";
+
+const Grocery = lazy(()=> import("./src/components/Grocery"));//creates a new bundler or chunk which only loads on demand
 const AppLayout = () => {
-  
   return (
     <div className="app">
       <Header />
@@ -37,9 +39,18 @@ const appRouter=createBrowserRouter(
           element: <Contact />
         },
         {
+          path: '/grocery',
+          element: (
+            <Suspense>
+              <Grocery/>
+            </Suspense>
+          )
+        },
+        {
           path:'/resturants/:resId',
           element: <RestMenu />
         }
+        
       ],
       errorElement:<Error/>,
     },

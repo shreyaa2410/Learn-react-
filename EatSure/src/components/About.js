@@ -5,7 +5,7 @@ class About extends React.Component {
     this.state = {
       count: 0, //state variables
       count1: 1, //state variables
-      apiData:{},
+      apiData: {},
     };
   }
   async componentDidMount() {
@@ -13,8 +13,8 @@ class About extends React.Component {
     const jsonData = await data.json();
     console.log(jsonData);
     this.setState({
-        apiData:jsonData,
-    })
+      apiData: jsonData,
+    });
   }
   render() {
     // const {name,place}= this.props;
@@ -31,9 +31,17 @@ class About extends React.Component {
                 })
             }}>counter</button>
             <p>count-2: {count1}</p> */}
-        <h2>{name}</h2>
-        <p>{bio}</p>
-        <img src={avatar_url} />
+        <section className="about">
+          <div className="container">
+            <div className="row">
+              <div className="col-10">
+                <h2>{name}</h2>
+                <p>{bio}</p>
+                <img className="about__img" src={avatar_url} />
+              </div>
+            </div>
+          </div>
+        </section>
       </>
     );
   }
