@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 .root{
     padding: 0;
     margin: 0;
@@ -18,13 +20,13 @@ a{
     color: inherit;
 }
 h3{
-    font-size: 25px;
+    font-size: 20px;
 }
 h4{
-    font-size: 15px;
+    font-size: 14px;
 }
 p{
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* header */
@@ -52,6 +54,10 @@ p{
     color: black;
     text-decoration: none;
 }
+.header .header__menu .nav-items li a:hover{
+    color: rgb(54, 54, 195);
+    text-decoration: none;
+}
 .header .header__menu .btn{
     align-items: center;
     display: flex;
@@ -68,30 +74,37 @@ p{
 }
 .search-bar input{
     border: none;
-    background: rgb(223, 220, 220);
+    background: rgba(209,213,219);
     color: black;
     padding: 5px;
+    border-radius: 5px 0 0 5px;
 }
 .search-bar .search-btn{
     border: none;
-    background: rgb(54, 54, 195);;
+    /* background: rgb(54, 54, 195);; */
     color: white;
     padding: 5px;
+    border-radius: 0 5px 5px 0;
 }
 .cards{
-    background-color: rgb(204, 204, 204);
     height: 100%;
+    border: 1px solid rgba(209,213,219);
+    border-radius: 20px;
     transition: all 0.3s ease-in-out;
 }
 .cards__img img{
 height: 220px;
+padding: 20px 20px 0 20px;
+border-radius: 30px;
 }
 .cards:hover{
+    background-color: rgb(229, 224, 224);
     transform: scale(1.02);
     cursor: pointer;
 }
 .cards .cards__content{
-    padding: 10px;
+    padding: 20px;
+   
 }
 .shimmer__card{
     background-color: #f0f0f0;
@@ -124,5 +137,14 @@ height: 220px;
     object-fit: cover;
 }
 .about .about__img{
-    width: 300px;
+    width: 150px;
+    border-radius: 50%;
+}
+.about .about__info{
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+.about .about__text h2{
+    font-size: 30px;
 }

@@ -20,10 +20,11 @@ const Body = () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.8092428&lng=86.1624587"
     );
+
     const jsonData = await data.json();
     console.log(jsonData);
     const restaurants =
-      await jsonData.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants;
+      await jsonData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants;
     setResturantList(restaurants || []);
     setFilteredData(restaurants || []);
   };
@@ -58,13 +59,13 @@ const Body = () => {
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
               />
-              <button className="search-btn" onClick={filteredCards}>
+              <button className="search-btn bg-blue-500" onClick={filteredCards}>
                 Search
               </button>
             </div>
             <div className="filter-tags">
               <button
-                className="rated-btn primary-btn"
+                className="rated-btn  px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
                 onClick={FilterRating}
               >
                 Top Rated
