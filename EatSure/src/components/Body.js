@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";
+import ResCard, {ResCardPromoted} from "./ResCard";
 import { resobj } from "../utils/mockData";
 import ShimmerUi from "./ShimmerUi";
 import { useEffect, useState } from "react";
@@ -9,7 +9,9 @@ const Body = () => {
   const [resturantList, setResturantList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredData,setFilteredData]= useState([]);
-
+  // const [promotedData,setPromotedData] =useState("false");
+  // setPromotedData(ResCardPromoted(ResCard));
+  const PromotedData= ResCardPromoted(ResCard);
   const {resId}=useParams();
   useEffect(() => {
     fetchData();
@@ -17,21 +19,24 @@ const Body = () => {
 
 // https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.8092428&lng=86.1624587
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.8092428&lng=86.1624587"
-    );
+
+    // const data = await fetch(
+    //   "https://www.swiggy.com/dapi/restaurants/list/v5?llat=22.8092428&lng=86.1624587&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    // );
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
     const jsonData = await data.json();
     console.log(jsonData);
     const restaurants =
-      await jsonData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants;
+      await jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants;
     setResturantList(restaurants || []);
     setFilteredData(restaurants || []);
-  };
+   
 
+  };
   let FilterRating = ()=>{ 
     const highRated =resturantList.filter((res) => {
-     return  res.info.avgRatingString > 4.5;
+     return  res.info.avgRatingString >= 4.5;
   });
   setFilteredData(highRated);
 }
@@ -45,8 +50,8 @@ const Body = () => {
     setFilteredData(searchFilter);
   };
 
-
-
+  console.log(filteredData);
+  // console.log(filteredData[0].info);
   return  resturantList.length===0?(<ShimmerUi />):(
     <div className="body mt-4 pb-3">
       <div className="container">
@@ -74,8 +79,12 @@ const Body = () => {
           </div>
         </div>
         <div className="row res-container g-4">
-          {filteredData.map((resturant) => (
-           <ResCard key={resturant.info.id} resList={resturant} />
+          {filteredData.map((restaurant) => (
+           restaurant.info.aggregatedDiscountInfoV3  ? (
+            <PromotedData key={restaurant.info.id} resList={restaurant} />
+          ) : (
+            <ResCard key={restaurant.info.id} resList={restaurant} />
+          )
           ))}
         </div>
       </div>

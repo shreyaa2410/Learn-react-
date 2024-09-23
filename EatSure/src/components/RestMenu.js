@@ -4,6 +4,13 @@ import { IMAGE_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import useRestrauntMenu from "../utils/useRestrauntMenu";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CategoryItem from "./CategoryItem";
+import {
+  faStar,
+  faLocation,
+  faUtensils,
+} from "@fortawesome/free-solid-svg-icons";
 
 const RestMenu = () => {
   // const [resInfo, setResInfo] = useState(null);
@@ -11,7 +18,7 @@ const RestMenu = () => {
 
   const resInfo= useRestrauntMenu(resId); //custom hook
   const onlineStatus= useOnlineStatus();
-
+console.log(resInfo);
   // useEffect(() => {
   //   fetchData();
   // }, []);
@@ -35,43 +42,37 @@ const RestMenu = () => {
   }
   if (resInfo == null) return <ShimmerUi />;
   const {
-    info = {},
+    name='',
     cuisines = [],
-    costForTwo = 0,
+    costForTwoMessage = '',
     feeDetails = {},
     locality = '',
     avgRating = 'N/A',
-  } = resInfo?.data?.cards?.[2]?.card?.card || {};
+  } = resInfo?.data?.cards[2]?.card?.card?.info || {};
   
-  const itemCards = resInfo?.data?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards || [];
-  console.log(itemCards)  
+  const itemCategory = resInfo?.data?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>{
+    return c.card?.card?.["@type"] === 
+    "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
+  });
+   
   return (
     <>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">
-            <h1>{info.name}</h1>
-            <div className="top-box">
+            <h1 className="text-2xl mb-4 font-bold">{name}</h1>
+            <div className="top-box shadow-lg mb-12">
               <div className="rating">
-                <p>{avgRating}+Rating</p>
-                <p>Rs{costForTwo / 100}</p>
+                <p className="font-bold text-base"><FontAwesomeIcon className="text-yellow-400"  icon={faStar}/> {avgRating}+Rating</p>
+                <p className="font-bold text-base">{costForTwoMessage}</p>
               </div>
-              <p>{cuisines.join(',')}</p>
-              <p>{locality}</p>
+              <p className="font-bold text-base text-yellow-400"><FontAwesomeIcon className="text-yellow-400"  icon={faUtensils}/>  {cuisines.join(',')}</p>
+              <p className="font-bold text-base"><FontAwesomeIcon className="text-yellow-400"  icon={faLocation}/> {locality}</p>
               <span>{feeDetails.message}</span>
             </div>
-            {itemCards.map((item)=>{
+            {itemCategory.map((item)=>{
              return(
-                <div className="menu-item" key={item.card.info.id}>
-                <div className="_menu">
-                    <h4>{item.card.info.name}</h4>
-                    <p>Rs{item.card.info.price/100}</p>
-                    <p>{item.card.info.description}</p>
-                </div>
-                <div className="_image">
-                    <img  src={IMAGE_URL + "/"+ item.card.info.imageId}/>
-                </div>
-            </div>
+              <CategoryItem key={item.card.card.title} category={item.card.card}/>
              )
             })}
             

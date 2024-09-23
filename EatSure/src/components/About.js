@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faLinkedin, faTwitter, faGithub ,faInfo,faLocation} from '@fortawesome/free-solid-svg-icons'; 
+import { faInstagram, faLinkedin, faTwitter ,faInfo,faLocation} from '@fortawesome/free-solid-svg-icons'; 
 class About extends React.Component {
   constructor(props) {
     super(props);
@@ -36,9 +36,9 @@ class About extends React.Component {
             <p>count-2: {count1}</p> */}
         <section className="about">
           <div className="container">
-            <div className="row">
+            <div className="row justify-content-center">
               <div className="col-10 pb-4">
-              <div className="sm:text-large text-center text-gray-700"> 
+              <div className="sm:text-large text-center text-gray-700 mt-4"> 
                     <p> EatSure is a modern Front-end Food Ordering Web Application, which has been integrated with Swiggy's Live API to provide a seamless dining experience. Our platform allows users to explore a wide range of restaurants, view detailed menu's, search for top-rated restaurants and add items to their cart.</p>
                   </div>
                 <div className="about__info my-10 p-4 sm:p-6 bg-gray-100 rounded-lg shadow-lg">
