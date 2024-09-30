@@ -3,13 +3,12 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import MenuItemList from "./MenuItemList";
 import { list } from "postcss";
 import { useState } from "react";
-const CategoryItem = ({ category }) => {
-  const [showItems, setShowItems] = useState(false);
+const CategoryItem = ({ category,showItems,setShowIndex }) => {
+  
   const { title } = category;
   const handleAccordion = () => {
-    setShowItems(!showItems);
+    setShowIndex();
   };
-  console.log(showItems)
   return (
     <>
       <div className="container">

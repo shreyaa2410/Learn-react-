@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLinkedin, faTwitter ,faInfo,faLocation} from '@fortawesome/free-solid-svg-icons'; 
 class About extends React.Component {
@@ -10,6 +10,7 @@ class About extends React.Component {
       apiData: {},
     };
   }
+  
   async componentDidMount() {
     const data = await fetch("https://api.github.com/users/shreyaa2410");
     const jsonData = await data.json();
@@ -23,6 +24,7 @@ class About extends React.Component {
     const { count, count1 } = this.state;
     const { avatar_url, name, bio,location , login,
       html_url} = this.state.apiData;
+     
     return (
       <>
         {/* <h1>About {name} and {place}</h1>
@@ -48,7 +50,7 @@ class About extends React.Component {
                   <div className="">
                   <p><FontAwesomeIcon icon={faInfo} className="text-yellow-500"/>  {bio}</p>
                   <p><FontAwesomeIcon icon={faLocation} className="text-yellow-500"/>  {location}</p>
-                  <a href={html_url}><p><FontAwesomeIcon icon={faGithub} className="text-yellow-500"/> {login}</p></a>
+                  <a href={html_url}><p><FontAwesomeIcon icon={faLocation} className="text-yellow-500"/> {login}</p></a>
                   </div>
                 </div>
                 </div>

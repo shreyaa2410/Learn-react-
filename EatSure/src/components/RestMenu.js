@@ -14,6 +14,7 @@ import {
 
 const RestMenu = () => {
   // const [resInfo, setResInfo] = useState(null);
+  const [showIndex, setShowIndex] = useState(null);
   const {resId}=useParams();
 
   const resInfo= useRestrauntMenu(resId); //custom hook
@@ -50,7 +51,8 @@ console.log(resInfo);
     avgRating = 'N/A',
   } = resInfo?.data?.cards[2]?.card?.card?.info || {};
   
-  const itemCategory = resInfo?.data?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>{
+  console.log(resInfo);
+  const itemCategory = resInfo?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>{
     return c.card?.card?.["@type"] === 
     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
   });
@@ -70,9 +72,12 @@ console.log(resInfo);
               <p className="font-bold text-base"><FontAwesomeIcon className="text-yellow-400"  icon={faLocation}/> {locality}</p>
               <span>{feeDetails.message}</span>
             </div>
-            {itemCategory.map((item)=>{
+            {itemCategory.map((item,index)=>{
              return(
-              <CategoryItem key={item.card.card.title} category={item.card.card}/>
+              <CategoryItem key={item.card.card.title} 
+              showItems={index===showIndex?true:false}
+              setShowIndex={()=>setShowIndex((prevIndex)=>prevIndex===index?null : index)}
+              category={item.card.card}/>
              )
             })}
             

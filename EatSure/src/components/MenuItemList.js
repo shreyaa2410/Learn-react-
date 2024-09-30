@@ -20,8 +20,11 @@ const MenuItemList = ({ list }) => {
           </div>
         </div>
         <div className="col-5 col-lg-3">
-          <div className="_image">
+          <div className="_image relative">
             <img className="rounded-lg" src={IMAGE_URL + "/" + list.card.info.imageId} />
+            <div className="absolute bottom-0 right-0">
+            <button className="bg-green-500 hover:bg-green-700 font-bold text-white px-4 py-2 rounded">Add + </button>
+          </div>
           </div>
         </div>
       </div>
