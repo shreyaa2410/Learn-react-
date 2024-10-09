@@ -1,5 +1,20 @@
+import { useDispatch } from "react-redux";
 import { IMAGE_URL } from "../utils/constants";
+import { Add_Item } from "../utils/cartSlice";
+import { toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 const MenuItemList = ({ list }) => {
+  const dispatch= useDispatch();
+  console.log(list);
+  const handleItem=()=>{
+    dispatch(Add_Item(list));
+    toast.success(
+      <div className="flex items-center">
+        {/* <FontAwesomeIcon icon={faCheckCircle} className="mr-2" /> */}
+        Item added to Cart Successfully!
+      </div>
+    );
+  }
   return (
     <div className="menu-item" key={list.card.info.id}>
       <div className="row justify-between">
@@ -23,7 +38,8 @@ const MenuItemList = ({ list }) => {
           <div className="_image relative">
             <img className="rounded-lg" src={IMAGE_URL + "/" + list.card.info.imageId} />
             <div className="absolute bottom-0 right-0">
-            <button className="bg-green-500 hover:bg-green-700 font-bold text-white px-4 py-2 rounded">Add + </button>
+            <button className="bg-green-500 hover:bg-green-700 font-bold text-white px-4 py-2 rounded"
+            onClick={handleItem}>Add + </button>
           </div>
           </div>
         </div>

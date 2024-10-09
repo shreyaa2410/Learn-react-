@@ -52,7 +52,7 @@ console.log(resInfo);
   } = resInfo?.data?.cards[2]?.card?.card?.info || {};
   
   console.log(resInfo);
-  const itemCategory = resInfo?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>{
+  const itemCategory = resInfo?.data?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>{
     return c.card?.card?.["@type"] === 
     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
   });

@@ -17,6 +17,7 @@ import UserContext from "./src/utils/UserContext";
 import Cart from "./src/components/Cart";
 import appStore from "./src/utils/appStore";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
 // import Grocery from "./src/components/Grocery";
 
 const Grocery = lazy(() => import("./src/components/Grocery")); //creates a new bundler or chunk which only loads on demand
@@ -29,8 +30,10 @@ const AppLayout = () => {
     setUserName(username.data);
   }, []);
   return (
+    
     <Provider store={appStore}>
       <UserContext.Provider value={{ loginUser: userName, setUserName }}>
+      <ToastContainer />
         <div className="app">
           <Header />
           <Outlet />
